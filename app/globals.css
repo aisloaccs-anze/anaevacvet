@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --background: #FDF8F8;
+  --background-secondary: #F5EAEB;
+  --foreground: #2a1f2a;
+  --muted-text: #6A5A5A;
+  --accent-sage: #6BAF9B;
+  --accent-blush: #E8B4C0;
+  --border-color: rgba(200, 160, 170, 0.18);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--foreground);
+  --color-muted-text: var(--muted-text);
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-blush: var(--accent-blush);
+  --color-border-color: var(--border-color);
+
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  
+  --animate-fade-in: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-marquee: marquee var(--duration, 30s) linear infinite;
+  --animate-shine: shine 8s linear infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+@keyframes shine {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Anaeva brand background illustration */
+  background-image: url('/background.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Subtle overlay so background shows through sections softly */
+body > main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-blush);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-sage);
+}
+
+/* Custom selections */
+::selection {
+  background-color: var(--accent-blush);
+  color: var(--foreground);
+}
+
+/* Custom glassmorphism utilities */
+.glass-nav {
+  background-color: rgba(253, 248, 248, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200, 160, 170, 0.12);
+}
+
+/* Text stroke for editorial layouts */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--foreground);
+  color: transparent;
+}
+
+/* Premium background pattern utilities */
+.bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(23, 23, 23, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 23, 23, 0.02) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(23, 23, 23, 0.035) 1px, transparent 1px);
+}
+
