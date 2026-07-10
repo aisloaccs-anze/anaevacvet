@@ -7,8 +7,8 @@ import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import { Marquee } from "@/components/ui/marquee";
 import FeaturedBentoGrid from "@/components/FeaturedBentoGrid";
-import FeaturedWorkshops from "@/components/FeaturedWorkshops";
-import { galleryItems, workshopsData } from "@/data/mockData";
+import WorkshopsSection from "@/components/WorkshopsSection";
+import { galleryItems } from "@/data/mockData";
 
 export default function Home() {
   // Let's feature 3 stunning asymmetric works on the homepage
@@ -46,28 +46,7 @@ export default function Home() {
       </section>
 
       {/* Section 2: Workshops */}
-      <section className="py-28 bg-pink-50/50 backdrop-blur-sm border-b border-pink-100/50 relative z-10">
-        <div className="absolute inset-0 bg-dot-pattern opacity-[0.25] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          {/* Header */}
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-accent-sage font-bold mb-3 block">
-              Izkustvena doživetja
-            </span>
-            <h2 className="font-serif text-4xl md:text-5xl tracking-tight text-foreground mb-4">
-              Cvetlične delavnice Anaeva
-            </h2>
-            <p className="font-sans text-sm text-muted-text leading-relaxed">
-              Združite umetnost floristike z nepozabnimi družabnimi in naravnimi doživetji. 
-              Popolno za dekliščine, rojstne dneve ali sproščujoč pobeg iz mesta.
-            </p>
-          </div>
-
-          {/* Workshops grid (Client component for animations & shine borders) */}
-          <FeaturedWorkshops workshopsData={workshopsData} />
-        </div>
-      </section>
+      <WorkshopsSection />
 
       {/* Section 3: Featured Gallery (Bento Grid) */}
       <section className="py-28 bg-white/70 backdrop-blur-sm relative z-10">
