@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronDown, Clock, Users, MapPin, Star, Camera, Wine, Scissors, Heart } from "lucide-react";
+import { ArrowRight, ChevronDown, Clock, Users, MapPin, Camera, Wine, Scissors, Heart, Leaf, Sun, Coffee } from "lucide-react";
 
-const delavnicaSteps = [
+/* ─── Aperol Workshop ─────────────────────────────────────── */
+const aperolSteps = [
   {
     icon: <Wine className="w-5 h-5" />,
     title: "Dobrodošli & Aperol",
@@ -29,16 +30,49 @@ const delavnicaSteps = [
   },
 ];
 
-const galleryPhotos = [
+const aperolGallery = [
   { src: "/images/delavnica1.jpg", alt: "Udeležene na delavnici vezanja šopkov" },
   { src: "/images/delavnica2.jpg", alt: "Skupinska fotografija z ustvarjenimi šopki" },
   { src: "/images/delavnica3.jpg", alt: "Delavnica v teku – skupinsko ustvarjanje" },
   { src: "/images/delavnica4.jpg", alt: "Individualno vodenje pri vezavi šopka" },
 ];
 
+/* ─── Konji Workshop ─────────────────────────────────────── */
+const konjiSteps = [
+  {
+    icon: <Sun className="w-5 h-5" />,
+    title: "Dobrodošli na posestvu",
+    desc: "Prispete na čudovito posestvo sredi narave, kjer vas pričaka topel sprejem z lokalnimi osvežilnimi napitki. Spoznate konje in vodnika, ki vam razloži potek dneva v naravi.",
+  },
+  {
+    icon: <Leaf className="w-5 h-5" />,
+    title: "Spletanje cvetličnih vencev",
+    desc: "Pod strokovnim vodstvom naše cvetličarke se naučite tehnike spletanja trajnih stenskih in lasnih vencev iz sezonskega cvetja in zelenja. Vsaka udeleženka ustvari svoj unikatni venec.",
+  },
+  {
+    icon: <Heart className="w-5 h-5" />,
+    title: "Srečanje s konji",
+    desc: "V pomirjujočem objemu narave se zbližate s plemenitimi konji. Njihova prisotnost deluje terapevtsko in posebno – idealno za sprostitev in nepozabno doživetje, ki bo ostalo z vami.",
+  },
+  {
+    icon: <Coffee className="w-5 h-5" />,
+    title: "Domača kulinarika & Fotografiranje",
+    desc: "Doživetje zaokrožite z domačo kulinariko in svežimi lokalnimi specialitetami. Profesionalno fotografiranje z vašimi venci in konji poskrbi za spomin, ki ga boste cenili za vedno.",
+  },
+];
+
+const konjiGallery = [
+  { src: "/images/konji_hero.jpg", alt: "Cvetlična delavnica z konji v naravi" },
+  { src: "/images/konji_hero.jpg", alt: "Spletanje vencev na posestvu" },
+  { src: "/images/konji_hero.jpg", alt: "Srečanje s konji in cvetjem" },
+  { src: "/images/konji_hero.jpg", alt: "Domača kulinarika na posestvu" },
+];
+
 export default function WorkshopsSection() {
-  const [expanded, setExpanded] = useState(false);
-  const [activePhoto, setActivePhoto] = useState<number | null>(null);
+  const [aperolExpanded, setAperolExpanded] = useState(false);
+  const [konjiExpanded, setKonjiExpanded] = useState(false);
+  const [activeAperolPhoto, setActiveAperolPhoto] = useState<number | null>(null);
+  const [activeKonjiPhoto, setActiveKonjiPhoto] = useState<number | null>(null);
 
   return (
     <section className="py-32 bg-pink-50/50 backdrop-blur-sm border-b border-pink-100/50 relative z-10 overflow-hidden">
@@ -69,7 +103,9 @@ export default function WorkshopsSection() {
           </p>
         </motion.div>
 
-        {/* Main Workshop Card — Aperol */}
+        {/* ══════════════════════════════════════════════
+            WORKSHOP 1 — Aperol Spritz
+        ══════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,11 +167,11 @@ export default function WorkshopsSection() {
               </div>
               <div>
                 <div className="grid grid-cols-2 gap-3 h-full">
-                  {[galleryPhotos[1], galleryPhotos[3]].map((photo, i) => (
+                  {[aperolGallery[1], aperolGallery[3]].map((photo, i) => (
                     <div
                       key={i}
                       className="relative rounded-2xl overflow-hidden aspect-square cursor-pointer group"
-                      onClick={() => setActivePhoto(i === 0 ? 1 : 3)}
+                      onClick={() => setActiveAperolPhoto(i === 0 ? 1 : 3)}
                     >
                       <Image src={photo.src} alt={photo.alt} fill sizes="300px" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
@@ -147,18 +183,18 @@ export default function WorkshopsSection() {
 
             {/* Preberi več button */}
             <button
-              onClick={() => setExpanded(!expanded)}
+              onClick={() => setAperolExpanded(!aperolExpanded)}
               className="flex items-center gap-2 font-sans text-xs tracking-widest uppercase font-bold text-accent-sage hover:text-foreground transition-colors duration-200 group mb-6"
             >
-              <span>{expanded ? "Zapri" : "Preberi več o poteku delavnice"}</span>
-              <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+              <span>{aperolExpanded ? "Zapri" : "Preberi več o poteku delavnice"}</span>
+              <motion.div animate={{ rotate: aperolExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 <ChevronDown className="w-4 h-4" />
               </motion.div>
             </button>
 
             {/* Expandable section */}
             <AnimatePresence>
-              {expanded && (
+              {aperolExpanded && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
@@ -169,7 +205,7 @@ export default function WorkshopsSection() {
                   <div className="pt-4 pb-8 border-t border-pink-100">
                     <h4 className="font-serif text-2xl text-foreground mb-8 mt-6">Kako poteka delavnica?</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                      {delavnicaSteps.map((step, i) => (
+                      {aperolSteps.map((step, i) => (
                         <motion.div
                           key={i}
                           initial={{ opacity: 0, y: 20 }}
@@ -194,14 +230,14 @@ export default function WorkshopsSection() {
                     {/* Photo gallery */}
                     <h4 className="font-serif text-2xl text-foreground mb-6">Utrinki iz naših delavnic</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      {galleryPhotos.map((photo, i) => (
+                      {aperolGallery.map((photo, i) => (
                         <motion.div
                           key={i}
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: i * 0.08, duration: 0.4 }}
                           className="relative rounded-2xl overflow-hidden aspect-square cursor-pointer group"
-                          onClick={() => setActivePhoto(i)}
+                          onClick={() => setActiveAperolPhoto(i)}
                         >
                           <Image src={photo.src} alt={photo.alt} fill sizes="350px" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -235,74 +271,184 @@ export default function WorkshopsSection() {
           </div>
         </motion.div>
 
-        {/* Second workshop — Horses (compact card) */}
+        {/* ══════════════════════════════════════════════
+            WORKSHOP 2 — Konji v naravi
+        ══════════════════════════════════════════════ */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-3xl overflow-hidden shadow-xl shadow-pink-100/30 bg-white/90 backdrop-blur-sm flex flex-col md:flex-row"
+          className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl shadow-teal-100/30"
         >
-          <div className="relative md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden">
+          {/* Hero image */}
+          <div className="relative aspect-[21/9] w-full overflow-hidden">
             <Image
-              src="/images/workshop_horses.jpg"
-              alt="Delavnica z konji v naravi"
+              src="/images/konji_hero.jpg"
+              alt="Cvetlični venci s konji v naravi"
               fill
-              sizes="(max-width: 768px) 100vw, 40vw"
-              className="object-cover"
+              sizes="100vw"
+              className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10 md:bg-gradient-to-r" />
-            <div className="absolute top-5 left-5 flex flex-col gap-2">
-              <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-foreground font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
-                120 € / osebo
-              </span>
-              <span className="px-4 py-2 bg-accent-sage text-white font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
-                Narava & konji
-              </span>
-            </div>
-          </div>
-          <div className="flex-1 p-8 md:p-12 flex flex-col justify-between">
-            <div>
-              <div className="flex flex-wrap gap-4 text-muted-text font-sans text-xs tracking-wide mb-4">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+            {/* Overlay content */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14">
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-foreground font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
+                  120 € / osebo
+                </span>
+                <span className="px-4 py-2 bg-accent-sage text-white font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
+                  Narava & Konji
+                </span>
+                <span className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white font-sans text-[9px] tracking-widest uppercase font-bold rounded-full border border-white/30">
+                  🌿 Ekskluzivno doživetje
+                </span>
+              </div>
+              <h3 className="font-serif text-3xl md:text-4xl text-white mb-3 leading-tight">
+                Cvetlični venci s konji v naravi
+              </h3>
+              <div className="flex flex-wrap gap-6 text-white/80 font-sans text-xs tracking-wide">
                 <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> Cca. 3–4 ure</span>
                 <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" /> 4–12 oseb</span>
                 <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Posestvo v naravi</span>
               </div>
-              <h3 className="font-serif text-3xl text-foreground mb-4 leading-tight">
-                Cvetlični venci s konji v naravi
-              </h3>
-              <p className="font-sans text-sm text-muted-text leading-relaxed mb-6">
-                Popoln botanični umik v naravo. Na čudovitem posestvu se naučite spletanja lasnih in stenskih cvetličnih vencev v pomirjujoči družbi plemenitih konj. Vključuje domačo kulinariko, profesionalne fotografije in vse materiale.
-              </p>
-              <ul className="space-y-2 mb-8">
-                {["Tehnika spletanja trpežnih stenskih in lasnih vencev","Srečanje in sproščanje ob prisotnosti konj","Profesionalno fotografiranje z vašimi kreacijami","Domača kulinarika in osvežilni lokalni napitki"].map((b, i) => (
-                  <li key={i} className="flex items-start gap-2.5 font-sans text-xs text-foreground leading-snug">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-sage mt-1.5 flex-shrink-0" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
             </div>
-            <Link
-              href="/contact?service=workshop-horses"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background font-sans text-[10px] tracking-widest uppercase hover:bg-accent-sage hover:text-foreground transition-all duration-300 rounded-full font-bold shadow-md w-fit"
+          </div>
+
+          {/* Card body */}
+          <div className="bg-white/90 backdrop-blur-sm p-8 md:p-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+              <div>
+                <p className="font-sans text-sm text-muted-text leading-relaxed mb-6">
+                  Popoln botanični umik v naravo. Na čudovitem posestvu se naučite spletanja lasnih in stenskih cvetličnih vencev v pomirjujoči družbi plemenitih konj. Vključuje domačo kulinariko, profesionalne fotografije in vse materiale.
+                </p>
+                <ul className="space-y-3">
+                  {["Tehnika spletanja trpežnih stenskih in lasnih vencev","Srečanje in sproščanje ob prisotnosti konj","Profesionalno fotografiranje z vašimi kreacijami","Domača kulinarika in osvežilni lokalni napitki"].map((b, i) => (
+                    <li key={i} className="flex items-start gap-2.5 font-sans text-xs text-foreground leading-snug">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-sage mt-1.5 flex-shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div className="grid grid-cols-2 gap-3 h-full">
+                  {[konjiGallery[1], konjiGallery[2]].map((photo, i) => (
+                    <div
+                      key={i}
+                      className="relative rounded-2xl overflow-hidden aspect-square cursor-pointer group"
+                      onClick={() => setActiveKonjiPhoto(i === 0 ? 1 : 2)}
+                    >
+                      <Image src={photo.src} alt={photo.alt} fill sizes="300px" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Preberi več button */}
+            <button
+              onClick={() => setKonjiExpanded(!konjiExpanded)}
+              className="flex items-center gap-2 font-sans text-xs tracking-widest uppercase font-bold text-accent-sage hover:text-foreground transition-colors duration-200 group mb-6"
             >
-              Rezerviraj doživetje
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+              <span>{konjiExpanded ? "Zapri" : "Preberi več o poteku delavnice"}</span>
+              <motion.div animate={{ rotate: konjiExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                <ChevronDown className="w-4 h-4" />
+              </motion.div>
+            </button>
+
+            {/* Expandable section */}
+            <AnimatePresence>
+              {konjiExpanded && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="pt-4 pb-8 border-t border-teal-100">
+                    <h4 className="font-serif text-2xl text-foreground mb-8 mt-6">Kako poteka delavnica?</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                      {konjiSteps.map((step, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.1, duration: 0.5 }}
+                          className="flex gap-4 p-6 rounded-2xl bg-teal-50/50 border border-teal-100"
+                        >
+                          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border border-teal-100 flex items-center justify-center text-accent-sage shadow-sm">
+                            <span className="text-xs font-bold text-muted-text">{i+1}</span>
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="text-accent-sage">{step.icon}</span>
+                              <h5 className="font-sans font-bold text-sm text-foreground">{step.title}</h5>
+                            </div>
+                            <p className="font-sans text-xs text-muted-text leading-relaxed">{step.desc}</p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Photo gallery */}
+                    <h4 className="font-serif text-2xl text-foreground mb-6">Utrinki iz naših delavnic</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                      {konjiGallery.map((photo, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: i * 0.08, duration: 0.4 }}
+                          className="relative rounded-2xl overflow-hidden aspect-square cursor-pointer group"
+                          onClick={() => setActiveKonjiPhoto(i)}
+                        >
+                          <Image src={photo.src} alt={photo.alt} fill sizes="350px" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                            <Camera className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <p className="font-sans text-xs text-muted-text mt-6 italic">
+                      * Delavnice potekajo ob vikendih na posestvu v naravi. Skupinske rezervacije za ekipe in posebne priložnosti po dogovoru.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* CTA row */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4 border-t border-teal-100">
+              <Link
+                href="/contact?service=workshop-horses"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-foreground text-background font-sans text-[10px] tracking-widest uppercase hover:bg-accent-sage hover:text-foreground transition-all duration-300 rounded-full font-bold shadow-lg shadow-foreground/10"
+              >
+                Rezerviraj doživetje
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <span className="font-sans text-[10px] text-muted-text tracking-wider">
+                * Skupinske rezervacije po dogovoru
+              </span>
+            </div>
           </div>
         </motion.div>
+
       </div>
 
-      {/* Full-screen photo lightbox */}
+      {/* ─── Aperol Lightbox ─── */}
       <AnimatePresence>
-        {activePhoto !== null && (
+        {activeAperolPhoto !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
-            onClick={() => setActivePhoto(null)}
+            onClick={() => setActiveAperolPhoto(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -313,8 +459,8 @@ export default function WorkshopsSection() {
               onClick={e => e.stopPropagation()}
             >
               <Image
-                src={galleryPhotos[activePhoto].src}
-                alt={galleryPhotos[activePhoto].alt}
+                src={aperolGallery[activeAperolPhoto].src}
+                alt={aperolGallery[activeAperolPhoto].alt}
                 fill
                 sizes="90vw"
                 className="object-contain"
@@ -322,7 +468,43 @@ export default function WorkshopsSection() {
             </motion.div>
             <button
               className="absolute top-6 right-6 text-white/80 hover:text-white font-sans text-xs tracking-widest uppercase"
-              onClick={() => setActivePhoto(null)}
+              onClick={() => setActiveAperolPhoto(null)}
+            >
+              Zapri ✕
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ─── Konji Lightbox ─── */}
+      <AnimatePresence>
+        {activeKonjiPhoto !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setActiveKonjiPhoto(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative max-w-5xl w-full max-h-[90vh] aspect-auto rounded-2xl overflow-hidden"
+              onClick={e => e.stopPropagation()}
+            >
+              <Image
+                src={konjiGallery[activeKonjiPhoto].src}
+                alt={konjiGallery[activeKonjiPhoto].alt}
+                fill
+                sizes="90vw"
+                className="object-contain"
+              />
+            </motion.div>
+            <button
+              className="absolute top-6 right-6 text-white/80 hover:text-white font-sans text-xs tracking-widest uppercase"
+              onClick={() => setActiveKonjiPhoto(null)}
             >
               Zapri ✕
             </button>
