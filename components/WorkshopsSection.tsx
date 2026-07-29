@@ -62,10 +62,10 @@ const konjiSteps = [
 ];
 
 const konjiGallery = [
-  { src: "/images/konji_hero.jpg", alt: "Cvetlična delavnica z konji v naravi" },
-  { src: "/images/konji_hero.jpg", alt: "Spletanje vencev na posestvu" },
-  { src: "/images/konji_hero.jpg", alt: "Srečanje s konji in cvetjem" },
-  { src: "/images/konji_hero.jpg", alt: "Domača kulinarika na posestvu" },
+  { src: "/images/konji_hero.jpg", alt: "Cvetlicna delavnica z konji v naravi" },
+  { src: "/images/konji_2.jpg", alt: "Spletanje vencev na posestvu" },
+  { src: "/images/konji_3.jpg", alt: "Srecanje s konji in cvetjem" },
+  { src: "/images/konji_hero.jpg", alt: "Domaca kulinarika na posestvu" },
 ];
 
 export default function WorkshopsSection() {
