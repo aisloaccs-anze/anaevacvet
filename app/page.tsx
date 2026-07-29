@@ -9,6 +9,7 @@ import { Marquee } from "@/components/ui/marquee";
 import FeaturedBentoGrid from "@/components/FeaturedBentoGrid";
 import WorkshopsSection from "@/components/WorkshopsSection";
 import CarouselSection from "@/components/CarouselSection";
+import ContactSection from "@/components/ContactSection";
 import { galleryItems } from "@/data/mockData";
 
 export default function Home() {
@@ -91,7 +92,10 @@ export default function Home() {
       {/* Section 6: Testimonials */}
       <Testimonials />
 
-      {/* Section 7: CTA */}
+      {/* Section 7: Contact */}
+      <ContactSection />
+
+      {/* Section 8: CTA */}
       <CTASection />
     </div>
   );
