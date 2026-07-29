@@ -34,6 +34,13 @@ const carouselItems: CardStackItem[] = [
     imageSrc: "/images/carousel4.jpg",
     tag: "Ekskluzivno",
   },
+  {
+    id: 5,
+    title: "Posebna kreacija",
+    description: "Prava mojstrovina za tiste, ki iščejo nekaj posebnega",
+    imageSrc: "/images/carousel5.jpg",
+    tag: "Posebno",
+  },
 ];
 
 export default function CarouselSection() {
@@ -56,7 +63,7 @@ export default function CarouselSection() {
             Naše kreacije
           </span>
           <h2 className="font-serif text-4xl md:text-5xl tracking-tight text-foreground mb-4">
-            Vsak šopek — unikat
+            Halo šopki
           </h2>
           <p className="font-sans text-sm text-muted-text max-w-xl mx-auto leading-relaxed">
             Vsaka kreacija je sestavljena z ljubeznijo in natančnostjo. Pomaknite kartice ali povlecite, da odkrijete naše najljubše ustvaritve.
