@@ -8,6 +8,7 @@ import CTASection from "@/components/CTASection";
 import { Marquee } from "@/components/ui/marquee";
 import FeaturedBentoGrid from "@/components/FeaturedBentoGrid";
 import WorkshopsSection from "@/components/WorkshopsSection";
+import CarouselSection from "@/components/CarouselSection";
 import { galleryItems } from "@/data/mockData";
 
 export default function Home() {
@@ -29,6 +30,9 @@ export default function Home() {
     <div className="w-full overflow-hidden">
       {/* Section 1: Hero */}
       <HeroSection />
+
+      {/* Section 1b: Card Stack Carousel */}
+      <CarouselSection />
 
       {/* Luxury Brand Marquee */}
       <section className="py-6 border-y border-pink-100/50 bg-white/60 backdrop-blur-sm relative z-20">
