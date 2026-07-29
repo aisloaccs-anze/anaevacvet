@@ -65,12 +65,12 @@ export default function Footer() {
               </h3>
             </div>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/cvetlicarnaanaeva/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-sans text-xs tracking-widest uppercase text-foreground hover:text-accent-sage mt-4 md:mt-0 transition-colors group"
             >
-              @cvetlicarna_anaeva
+              @cvetlicarnaanaeva
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
@@ -79,7 +79,7 @@ export default function Footer() {
             {instaImages.map((img, idx) => (
               <a
                 key={idx}
-                href="https://instagram.com"
+                href="https://www.instagram.com/cvetlicarnaanaeva/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative aspect-square overflow-hidden group block bg-[#171717]"
@@ -107,7 +107,7 @@ export default function Footer() {
               <Link href="/" className="flex items-center mb-6">
                 <div className="relative w-[160px] h-[80px]">
                   <Image
-                    src="/logo-clean.png"
+                    src="/images/logo.png"
                     alt="Cvetličarna Anaeva"
                     fill
                     sizes="160px"
@@ -122,7 +122,7 @@ export default function Footer() {
             </div>
             <div className="flex gap-4 mt-8">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/cvetlicarnaanaeva/"
                 className="w-9 h-9 rounded-full border border-foreground/10 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300"
                 aria-label="Instagram"
               >

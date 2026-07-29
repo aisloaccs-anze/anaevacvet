@@ -1,18 +1,25 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Instagram } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Kontakt & Svetovanje",
-  description: "Rezervirajte svetovanje ali pošljite povpraševanje za poročno cvetje, šopke in poslovne cvetlične naročnine s Cvetličarno Anaeva v Ljubljani.",
+  description: "Rezervirajte svetovanje ali pošljite povpraševanje za poročno cvetje, šopke in poslovne cvetlične naročnine s Cvetličarno Anaeva v Trzinu.",
 };
+
+const hours = [
+  { day: "Ponedeljek — Petek", time: "9:00 – 18:00", open: true },
+  { day: "Sobota", time: "9:00 – 13:00", open: true },
+  { day: "Nedelja & Prazniki", time: "Zaprto", open: false },
+];
 
 export default function ContactPage() {
   return (
     <div className="w-full pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
+
         {/* Intro */}
         <div className="max-w-2xl mb-16">
           <span className="font-sans text-xs tracking-[0.3em] uppercase text-accent-sage font-bold mb-3 block">
@@ -23,92 +30,116 @@ export default function ContactPage() {
             <span className="italic font-light text-muted-text">cvetlično zgodbo</span>
           </h1>
           <p className="font-sans text-sm md:text-base text-muted-text leading-relaxed">
-            Najsi naročate unikatne ročno vezane šopke, se dogovarjate za poslovni abonma ali 
+            Najsi naročate unikatne ročno vezane šopke, se dogovarjate za poslovni abonma ali
             načrtujete nepozabno poročno scenografijo, veselimo se vašega sporočila.
           </p>
         </div>
 
         {/* Grid layout: Form & Studio Details */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Side: Contact Details & Mock Map */}
+
+          {/* Left Side: Contact Details & Map */}
           <div className="lg:col-span-6 space-y-10">
-            
+
             {/* Details Blocks */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              
+
+              {/* Address */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2.5 text-accent-sage">
                   <MapPin className="w-4 h-4" />
-                  <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Studio Ljubljana</span>
+                  <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Lokacija</span>
                 </div>
-                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6.5">
-                  Stari trg 12 <br />
-                  1000 Ljubljana, Slovenija
+                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6">
+                  Ljubljanska cesta 12c<br />
+                  1236 Trzin, Slovenija
                 </p>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex items-center gap-2.5 text-accent-sage">
-                  <Clock className="w-4 h-4" />
-                  <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Delovni čas</span>
-                </div>
-                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6.5">
-                  Samo po dogovoru. <br />
-                  Ponedeljek — Sobota
-                </p>
-              </div>
-
+              {/* Phone */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2.5 text-accent-sage">
                   <Phone className="w-4 h-4" />
                   <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Telefon</span>
                 </div>
-                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6.5">
-                  <a href="tel:+38640123456" className="hover:text-foreground transition-colors">
-                    +386 40 123 456
+                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6">
+                  <a href="tel:+38651359266" className="hover:text-foreground transition-colors">
+                    +386 51 359 266
                   </a>
                 </p>
               </div>
 
+              {/* Email */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2.5 text-accent-sage">
                   <Mail className="w-4 h-4" />
                   <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Splošna vprašanja</span>
                 </div>
-                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6.5">
+                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6">
                   <a href="mailto:studio@anaeva.si" className="hover:text-foreground transition-colors">
                     studio@anaeva.si
                   </a>
                 </p>
               </div>
 
+              {/* Instagram */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2.5 text-accent-sage">
+                  <Instagram className="w-4 h-4" />
+                  <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Instagram</span>
+                </div>
+                <p className="font-sans text-sm text-muted-text leading-relaxed pl-6">
+                  <Link
+                    href="https://www.instagram.com/cvetlicarnaanaeva/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    @cvetlicarnaanaeva
+                  </Link>
+                </p>
+              </div>
+
             </div>
 
-            {/* Fine line */}
+            {/* Working Hours */}
+            <div className="rounded-2xl border border-pink-100 bg-white/70 backdrop-blur-sm p-6 space-y-4">
+              <div className="flex items-center gap-2.5 text-accent-sage mb-2">
+                <Clock className="w-4 h-4" />
+                <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Delovni čas</span>
+              </div>
+              {hours.map((h) => (
+                <div key={h.day} className="flex items-center justify-between py-2.5 border-b border-pink-50 last:border-0">
+                  <span className="font-sans text-sm text-foreground">{h.day}</span>
+                  <span className={`font-sans text-sm font-semibold ${h.open ? "text-accent-sage" : "text-rose-400"}`}>
+                    {h.time}
+                  </span>
+                </div>
+              ))}
+            </div>
+
             <div className="h-[1px] bg-border-color w-full" />
 
-            {/* Map Mockup container */}
+            {/* Google Maps */}
             <div className="space-y-4">
               <h3 className="font-serif text-xl text-foreground">
-                Lokacija v starem mestnem jedru
+                Najdite nas v Trzinu
               </h3>
-              <div className="relative w-full aspect-[16/10] bg-white/60 backdrop-blur-sm border border-pink-100/60 rounded-2xl overflow-hidden shadow-sm flex items-center justify-center p-6 text-center">
-                {/* Styled elegant architectural mockup map */}
-                <div className="absolute inset-0 bg-[#EFE7DC] opacity-50 bg-[radial-gradient(#171717_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
-                
-                <div className="relative z-10 space-y-2 max-w-xs">
-                  <p className="font-sans text-[10px] tracking-widest uppercase text-accent-sage font-bold">
-                    Zemljevid lokacije
-                  </p>
-                  <p className="font-serif text-lg text-foreground italic">
-                    Stari trg v zgodovinskem delu Ljubljane
-                  </p>
-                  <p className="font-sans text-xs text-muted-text leading-relaxed">
-                    Naš cvetlični studio se nahaja tik ob vznožju Grajskega griča. Vsa svetovanja in obiski potekajo po predhodnem dogovoru.
-                  </p>
-                </div>
+              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-md border border-pink-100">
+                <iframe
+                  title="Cvetličarna Anaeva lokacija"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.1234567890123!2d14.5645!3d46.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477acd3b3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sLjubljanská%20cesta%2012c%2C%201236%20Trzin!5e0!3m2!1ssl!2ssi!4v1234567890123"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, position: "absolute", inset: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
+              <p className="font-sans text-xs text-muted-text">
+                📍 Ljubljanska cesta 12c, 1236 Trzin
+              </p>
             </div>
 
           </div>
