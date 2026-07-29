@@ -66,7 +66,7 @@ export default function Navbar() {
               )}
             >
               <Image
-                src="/logo-clean.png"
+                src="/images/logo.png"
                 alt="Cvetličarna Anaeva"
                 fill
                 sizes="180px"
