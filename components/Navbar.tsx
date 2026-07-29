@@ -45,16 +45,16 @@ export default function Navbar() {
       {/* Wrapper header to handle the floating placement */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500 ease-out",
           isScrolled ? "pt-4 px-4" : "pt-0 px-0"
         )}
       >
         <div
           className={cn(
-            "w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between",
+            "w-full transition-all duration-500 ease-out flex items-center justify-between border",
             isScrolled
-              ? "max-w-5xl bg-white/75 backdrop-blur-xl border border-pink-100/60 shadow-lg shadow-pink-200/20 px-6 md:px-8 py-3.5 rounded-full"
-              : "max-w-7xl px-6 md:px-12 py-8 bg-transparent"
+              ? "max-w-5xl bg-white/80 backdrop-blur-xl border-pink-100/60 shadow-lg shadow-pink-200/20 px-6 md:px-8 py-3.5 rounded-full"
+              : "max-w-7xl border-transparent bg-transparent shadow-none px-6 md:px-12 py-6 rounded-full"
           )}
         >
           {/* Logo */}
