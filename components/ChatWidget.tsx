@@ -44,7 +44,7 @@ export default function ChatWidget() {
       const newBotMessage: Message = {
         id: `b-${Date.now()}`,
         sender: "bot",
-        text: "Hvala za vaše vprašanje. Za več podrobnosti in rezervacije prosimo izpolnite naš uradni obrazec na strani 'Kontakt' ali nam pišite na studio@anaeva.si.",
+        text: "Hvala za vaše vprašanje. Za več podrobnosti in rezervacije prosimo izpolnite naš uradni obrazec na strani 'Kontakt' ali nam pišite na info.anaeva@gmail.com.",
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, newBotMessage]);

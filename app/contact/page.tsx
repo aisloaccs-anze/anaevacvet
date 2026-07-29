@@ -84,8 +84,8 @@ export default function ContactPage() {
                   <span className="font-sans text-[10px] tracking-widest uppercase font-semibold text-foreground">Splošna vprašanja</span>
                 </div>
                 <p className="font-sans text-sm text-muted-text leading-relaxed pl-6">
-                  <a href="mailto:studio@anaeva.si" className="hover:text-foreground transition-colors">
-                    studio@anaeva.si
+                  <a href="mailto:info.anaeva@gmail.com" className="hover:text-foreground transition-colors">
+                    info.anaeva@gmail.com
                   </a>
                 </p>
               </div>

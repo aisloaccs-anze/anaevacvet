@@ -36,8 +36,8 @@ const contactInfo = [
   {
     icon: <Mail className="w-4 h-4" />,
     label: "E-pošta",
-    content: "studio@anaeva.si",
-    href: "mailto:studio@anaeva.si",
+    content: "info.anaeva@gmail.com",
+    href: "mailto:info.anaeva@gmail.com",
   },
   {
     icon: <InstagramIcon />,
@@ -232,7 +232,7 @@ export default function ContactSection() {
                     </button>
 
                     <p className="font-sans text-[10px] text-background/30 text-center tracking-wide">
-                      Odgovorimo v roku 24 ur · studio@anaeva.si
+                      Odgovorimo v roku 24 ur · info.anaeva@gmail.com
                     </p>
                   </form>
 
