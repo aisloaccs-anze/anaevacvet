@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Sparkles } from "@/components/ui/sparkles";
 import { TextReveal } from "@/components/ui/text-reveal";
 
@@ -129,12 +129,13 @@ export default function HeroSection() {
               Raziščite galerijo
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="tel:+38651359266"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-foreground/10 hover:border-foreground/40 hover:bg-background-secondary/20 text-foreground font-sans text-xs tracking-widest uppercase transition-all duration-300 rounded-full font-semibold"
             >
-              Rezervacija svetovanja
-            </Link>
+              <Phone className="w-4 h-4 text-accent-sage" />
+              Pokliči: 051 359 266
+            </a>
           </motion.div>
         </motion.div>
 
