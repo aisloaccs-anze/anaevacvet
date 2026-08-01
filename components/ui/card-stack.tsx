@@ -87,6 +87,14 @@ export function CardStack<T extends CardStackItem>({
 
   const [active, setActive] = React.useState(() => wrapIndex(initialIndex, len));
   const [hovering, setHovering] = React.useState(false);
+  const [windowWidth, setWindowWidth] = React.useState<number>(1200);
+
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   React.useEffect(() => {
     setActive((a) => wrapIndex(a, len));
@@ -98,9 +106,17 @@ export function CardStack<T extends CardStackItem>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
+  const isMobile = windowWidth < 640;
+  const isTablet = windowWidth < 768;
+
+  const effectiveCardWidth = isMobile ? Math.min(cardWidth, windowWidth - 48) : isTablet ? Math.min(cardWidth, 420) : cardWidth;
+  const effectiveCardHeight = isMobile ? Math.round(effectiveCardWidth * 0.75) : isTablet ? Math.round(effectiveCardWidth * 0.68) : cardHeight;
+  const effectiveOverlap = isMobile ? 0.64 : overlap;
+  const effectiveSpreadDeg = isMobile ? 22 : spreadDeg;
+
   const maxOffset = Math.max(0, Math.floor(maxVisible / 2));
-  const cardSpacing = Math.max(10, Math.round(cardWidth * (1 - overlap)));
-  const stepDeg = maxOffset > 0 ? spreadDeg / maxOffset : 0;
+  const cardSpacing = Math.max(10, Math.round(effectiveCardWidth * (1 - effectiveOverlap)));
+  const stepDeg = maxOffset > 0 ? effectiveSpreadDeg / maxOffset : 0;
 
   const canGoPrev = loop || active > 0;
   const canGoNext = loop || active < len - 1;
@@ -141,7 +157,7 @@ export function CardStack<T extends CardStackItem>({
     >
       <div
         className="relative w-full"
-        style={{ height: Math.max(380, cardHeight + 80) }}
+        style={{ height: Math.max(isMobile ? 320 : 380, effectiveCardHeight + (isMobile ? 50 : 80)) }}
         tabIndex={0}
         onKeyDown={onKeyDown}
       >
@@ -184,7 +200,7 @@ export function CardStack<T extends CardStackItem>({
                       if (reduceMotion) return;
                       const travel = info.offset.x;
                       const v = info.velocity.x;
-                      const threshold = Math.min(160, cardWidth * 0.22);
+                      const threshold = Math.min(160, effectiveCardWidth * 0.22);
                       if (travel > threshold || v > 650) prev();
                       else if (travel < -threshold || v < -650) next();
                     },
@@ -199,7 +215,7 @@ export function CardStack<T extends CardStackItem>({
                     "will-change-transform select-none",
                     isActive ? "cursor-grab active:cursor-grabbing" : "cursor-pointer",
                   )}
-                  style={{ width: cardWidth, height: cardHeight, zIndex, transformStyle: "preserve-3d" }}
+                  style={{ width: effectiveCardWidth, height: effectiveCardHeight, zIndex, transformStyle: "preserve-3d" }}
                   initial={reduceMotion ? false : { opacity: 0, y: y + 40, x, rotateZ, rotateX, scale }}
                   animate={{ opacity: 1, x, y: y + lift, rotateZ, rotateX, scale }}
                   transition={{ type: "spring", stiffness: springStiffness, damping: springDamping }}
@@ -276,16 +292,16 @@ function DefaultFanCard({ item }: { item: CardStackItem; active: boolean }) {
           </div>
         )}
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-      <div className="relative z-10 flex h-full flex-col justify-end p-5">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+      <div className="relative z-10 flex h-full flex-col justify-end p-4 sm:p-5">
         {item.tag && (
-          <span className="mb-2 w-fit px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white font-sans text-[9px] tracking-widest uppercase font-bold border border-white/20">
+          <span className="mb-1.5 sm:mb-2 w-fit px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/20 backdrop-blur-sm text-white font-sans text-[8px] sm:text-[9px] tracking-widest uppercase font-bold border border-white/20">
             {item.tag}
           </span>
         )}
-        <div className="truncate font-serif text-xl text-white">{item.title}</div>
+        <div className="truncate font-serif text-lg sm:text-xl text-white font-medium">{item.title}</div>
         {item.description && (
-          <div className="mt-1 line-clamp-2 font-sans text-sm text-white/80">{item.description}</div>
+          <div className="mt-0.5 sm:mt-1 line-clamp-2 font-sans text-xs sm:text-sm text-white/85 leading-snug">{item.description}</div>
         )}
       </div>
     </div>

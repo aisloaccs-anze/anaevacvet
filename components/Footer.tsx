@@ -54,7 +54,7 @@ export default function Footer() {
     <footer className="bg-white/80 backdrop-blur-sm border-t border-pink-100/60 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Instagram Showcase */}
-        <div className="mb-20">
+        <div className="mb-12 md:mb-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
             <div>
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-muted-text">

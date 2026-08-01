@@ -95,10 +95,10 @@ export default function WorkshopsSection() {
           <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-accent-sage font-bold mb-4 block">
             Izkustvena doživetja
           </span>
-          <h2 className="font-serif text-5xl md:text-6xl tracking-tight text-foreground mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl tracking-tight text-foreground mb-4 md:mb-6">
             Cvetlične delavnice Anaeva
           </h2>
-          <p className="font-sans text-base text-muted-text leading-relaxed">
+          <p className="font-sans text-sm sm:text-base text-muted-text leading-relaxed">
             Združite umetnost floristike z nepozabnim druženjem. Odidete domov z lastnoročno ustvarjenim šopkom – in spominom, ki ostane.
           </p>
         </motion.div>
@@ -114,7 +114,7 @@ export default function WorkshopsSection() {
           className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl shadow-pink-200/30"
         >
           {/* Hero image */}
-          <div className="relative aspect-[21/9] w-full overflow-hidden">
+          <div className="relative min-h-[300px] sm:min-h-[320px] md:min-h-0 aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden">
             <Image
               src="/images/delavnica1.jpg"
               alt="Cvetlična delavnica Anaeva"
@@ -123,25 +123,25 @@ export default function WorkshopsSection() {
               className="object-cover object-center"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
             {/* Overlay content */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14">
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-foreground font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-14">
+              <div className="flex flex-wrap gap-2 sm:gap-3 mb-3 sm:mb-6">
+                <span className="px-3 py-1 sm:px-4 sm:py-2 bg-white/90 backdrop-blur-sm text-foreground font-sans text-[8px] sm:text-[9px] tracking-widest uppercase font-bold rounded-full">
                   85 € / osebo
                 </span>
-                <span className="px-4 py-2 bg-pink-400 text-white font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
+                <span className="px-3 py-1 sm:px-4 sm:py-2 bg-pink-400 text-white font-sans text-[8px] sm:text-[9px] tracking-widest uppercase font-bold rounded-full">
                   All You Can Drink Aperol
                 </span>
-                <span className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white font-sans text-[9px] tracking-widest uppercase font-bold rounded-full border border-white/30">
+                <span className="px-3 py-1 sm:px-4 sm:py-2 bg-white/20 backdrop-blur-sm text-white font-sans text-[8px] sm:text-[9px] tracking-widest uppercase font-bold rounded-full border border-white/30">
                   ★ Najbolj priljubljena
                 </span>
               </div>
-              <h3 className="font-serif text-3xl md:text-4xl text-white mb-3 leading-tight">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-2 sm:mb-3 leading-tight">
                 Izdelaj svoj šopek + Aperol Spritz
               </h3>
-              <div className="flex flex-wrap gap-6 text-white/80 font-sans text-xs tracking-wide">
+              <div className="flex flex-wrap gap-3 sm:gap-6 text-white/90 font-sans text-[11px] sm:text-xs tracking-wide">
                 <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> Cca. 2 uri</span>
                 <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" /> 4–14 oseb</span>
                 <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Studio Ljubljana</span>
@@ -150,7 +150,7 @@ export default function WorkshopsSection() {
           </div>
 
           {/* Card body */}
-          <div className="bg-white/90 backdrop-blur-sm p-8 md:p-14">
+          <div className="bg-white/90 backdrop-blur-sm p-6 sm:p-8 md:p-14">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
               <div>
                 <p className="font-sans text-sm text-muted-text leading-relaxed mb-6">
@@ -282,7 +282,7 @@ export default function WorkshopsSection() {
           className="relative rounded-3xl overflow-hidden mb-16 shadow-2xl shadow-teal-100/30"
         >
           {/* Hero image */}
-          <div className="relative aspect-[21/9] w-full overflow-hidden">
+          <div className="relative min-h-[300px] sm:min-h-[320px] md:min-h-0 aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden">
             <Image
               src="/images/konji_main_44462.jpg"
               alt="Cvetlični venci s konji v naravi"
@@ -290,25 +290,25 @@ export default function WorkshopsSection() {
               sizes="100vw"
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
             {/* Overlay content */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14">
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-foreground font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-14">
+              <div className="flex flex-wrap gap-2 sm:gap-3 mb-3 sm:mb-6">
+                <span className="px-3 py-1 sm:px-4 sm:py-2 bg-white/90 backdrop-blur-sm text-foreground font-sans text-[8px] sm:text-[9px] tracking-widest uppercase font-bold rounded-full">
                   120 € / osebo
                 </span>
-                <span className="px-4 py-2 bg-accent-sage text-white font-sans text-[9px] tracking-widest uppercase font-bold rounded-full">
+                <span className="px-3 py-1 sm:px-4 sm:py-2 bg-accent-sage text-white font-sans text-[8px] sm:text-[9px] tracking-widest uppercase font-bold rounded-full">
                   Narava & Konji
                 </span>
-                <span className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white font-sans text-[9px] tracking-widest uppercase font-bold rounded-full border border-white/30">
+                <span className="px-3 py-1 sm:px-4 sm:py-2 bg-white/20 backdrop-blur-sm text-white font-sans text-[8px] sm:text-[9px] tracking-widest uppercase font-bold rounded-full border border-white/30">
                   🌿 Ekskluzivno doživetje
                 </span>
               </div>
-              <h3 className="font-serif text-3xl md:text-4xl text-white mb-3 leading-tight">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white mb-2 sm:mb-3 leading-tight">
                 Cvetlični venci s konji v naravi
               </h3>
-              <div className="flex flex-wrap gap-6 text-white/80 font-sans text-xs tracking-wide">
+              <div className="flex flex-wrap gap-3 sm:gap-6 text-white/90 font-sans text-[11px] sm:text-xs tracking-wide">
                 <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> Cca. 3–4 ure</span>
                 <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" /> 4–12 oseb</span>
                 <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Posestvo v naravi</span>
@@ -317,7 +317,7 @@ export default function WorkshopsSection() {
           </div>
 
           {/* Card body */}
-          <div className="bg-white/90 backdrop-blur-sm p-8 md:p-14">
+          <div className="bg-white/90 backdrop-blur-sm p-6 sm:p-8 md:p-14">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
               <div>
                 <p className="font-sans text-sm text-muted-text leading-relaxed mb-6">

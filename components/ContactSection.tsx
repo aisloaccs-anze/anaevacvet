@@ -58,7 +58,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="kontakt" className="py-32 bg-foreground text-background relative overflow-hidden">
+    <section id="kontakt" className="py-16 md:py-32 bg-foreground text-background relative overflow-hidden">
       {/* Decorative glow blobs */}
       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-pink-400/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-[400px] h-[400px] bg-teal-400/8 rounded-full blur-[120px] pointer-events-none" />
@@ -71,22 +71,22 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-20"
         >
           <span className="font-sans text-[10px] tracking-[0.35em] uppercase text-pink-300 font-bold mb-4 block">
             Stopite v stik
           </span>
-          <h2 className="font-serif text-5xl md:text-6xl tracking-tight text-background mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl tracking-tight text-background mb-4 md:mb-6">
             Oblikujmo vašo<br />
             <span className="italic font-light text-background/60">cvetlično zgodbo</span>
           </h2>
-          <p className="font-sans text-sm text-background/60 leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-background/60 leading-relaxed">
             Veselimo se vašega sporočila — najsi gre za šopek, poroko ali pa samo za pozdrav.
           </p>
         </motion.div>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* LEFT — Info + Hours + Map */}
           <motion.div

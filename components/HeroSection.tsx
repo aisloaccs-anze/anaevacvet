@@ -105,14 +105,14 @@ export default function HeroSection() {
             Studio za umetniško oblikovanje cvetja
           </motion.span>
 
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-[1.05] text-foreground mb-8">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight leading-[1.08] text-foreground mb-6 sm:mb-8">
             <TextReveal text="Cvetje, oblikovano" delay={0.1} /> <br />
             <TextReveal text="da ostane v spominu" delay={0.4} className="italic font-light text-muted-text" />
           </h1>
 
           <motion.p
             variants={itemVariants}
-            className="font-sans text-base md:text-lg text-muted-text max-w-xl leading-relaxed mb-10"
+            className="font-sans text-sm sm:text-base md:text-lg text-muted-text max-w-xl leading-relaxed mb-8 sm:mb-10"
           >
             Elegantne cvetlične kreacije in botanična scenografija, ročno ustvarjena
             z umetniškim pridihom v našem slovenskem studiu za najpomembnejše življenjske trenutke.

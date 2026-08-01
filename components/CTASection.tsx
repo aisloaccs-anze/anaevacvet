@@ -7,7 +7,7 @@ import { Sparkles } from "@/components/ui/sparkles";
 
 export default function CTASection() {
   return (
-    <section className="py-32 bg-white/65 backdrop-blur-sm relative overflow-hidden border-t border-border-color">
+    <section className="py-16 md:py-32 bg-white/65 backdrop-blur-sm relative overflow-hidden border-t border-border-color">
       {/* Background grid pattern */}
       <div className="absolute inset-0 bg-dot-pattern opacity-50 pointer-events-none" />
 

@@ -29,11 +29,11 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* Intro */}
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-2xl mb-10 md:mb-16">
           <span className="font-sans text-xs tracking-[0.3em] uppercase text-accent-sage font-bold mb-3 block">
             Stopite v stik
           </span>
-          <h1 className="font-serif text-5xl sm:text-6xl tracking-tight text-foreground leading-[1.1] mb-6">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl tracking-tight text-foreground leading-[1.1] mb-6">
             Oblikujmo vašo <br />
             <span className="italic font-light text-muted-text">cvetlično zgodbo</span>
           </h1>
