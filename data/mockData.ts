@@ -29,6 +29,402 @@ export interface ServiceDetail {
 
 export const galleryItems: GalleryItem[] = [
   {
+    id: "g_new_1",
+    title: "Koralni sezonski šopek",
+    category: "bouquets",
+    image: "/images/gallery/g_item_1.jpg",
+    description: "Prepoznaven ročno vezan šopek v toplih koralnih in pastelnih tonih.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "55 €"
+  },
+  {
+    id: "g_new_2",
+    title: "Spomladanski ambient",
+    category: "events",
+    image: "/images/gallery/g_item_2.jpg",
+    description: "Ambientalna cvetlična dekoracija z naravnim gibanjem stebel.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "Po dogovoru"
+  },
+  {
+    id: "g_new_3",
+    title: "Skulpturalni cvetlični aranžma",
+    category: "custom",
+    image: "/images/gallery/g_item_3.jpg",
+    description: "Umetniška kompozicija z poudarjeno strukturo in čistimi linijami.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "85 €"
+  },
+  {
+    id: "g_new_4",
+    title: "Poročni cvetlični obok Anaeva",
+    category: "weddings",
+    image: "/images/gallery/g_item_4.jpg",
+    description: "Monumentalna cvetlična dekoracija poročnega obreda s svežim cvetjem.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "Po dogovoru"
+  },
+  {
+    id: "g_new_5",
+    title: "Slonokoščeni poročni šopek",
+    category: "weddings",
+    image: "/images/gallery/g_item_5.jpg",
+    description: "Prestižen nevestin šopek iz izbranih belih in kremnih cvetov.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "95 €"
+  },
+  {
+    id: "g_new_6",
+    title: "Poročna namizna scenografija",
+    category: "weddings",
+    image: "/images/gallery/g_item_6.jpg",
+    description: "Romantična cvetlična linija vzdolž poročnih miz s svečami.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "Po dogovoru"
+  },
+  {
+    id: "g_new_7",
+    title: "Festivna cvetlična dekoracija",
+    category: "events",
+    image: "/images/gallery/g_item_7.jpg",
+    description: "Bujna cvetlična kompozicija za svečane dogodke in praznovanja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "120 €"
+  },
+  {
+    id: "g_new_8",
+    title: "Rožnati šopek z evkaliptusom",
+    category: "bouquets",
+    image: "/images/gallery/g_item_8.jpg",
+    description: "Bogat šopek rožnatih vrtnic in dišečega evkaliptusa.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "65 €"
+  },
+  {
+    id: "g_new_9",
+    title: "Spomladanska harmonija",
+    category: "seasonal",
+    image: "/images/gallery/g_item_9.jpg",
+    description: "Sveža sezonska kombinacija pomladnih cvetov v pastelni paleti.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "50 €"
+  },
+  {
+    id: "g_new_10",
+    title: "Kraljevski pastelni šopek",
+    category: "bouquets",
+    image: "/images/gallery/g_item_10.jpg",
+    description: "Raskošen šopek velikih dimenzij za posebne obletnice.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "75 €"
+  },
+  {
+    id: "g_new_11",
+    title: "Ambientalni cvetlični aranžma",
+    category: "events",
+    image: "/images/gallery/g_item_11.jpg",
+    description: "Prostorska kreacija za sprejemne pulte in salone.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "90 €"
+  },
+  {
+    id: "g_new_12",
+    title: "Romantična nevestina kreacija",
+    category: "weddings",
+    image: "/images/gallery/g_item_12.jpg",
+    description: "Nežen ročno vezan poročno šopek z mehkimi padajočimi trakovi.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "85 €"
+  },
+  {
+    id: "g_new_13",
+    title: "Unikatna botanična instalacija",
+    category: "custom",
+    image: "/images/gallery/g_item_13.jpg",
+    description: "Arhitekturna suha in sveža botanična instalacija po meri.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "130 €"
+  },
+  {
+    id: "g_new_14",
+    title: "Sončni sezonski šopek",
+    category: "seasonal",
+    image: "/images/gallery/g_item_14.jpg",
+    description: "Svetel in igriv šopek sezonskega cvetja za vsak dom.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "45 €"
+  },
+  {
+    id: "g_new_15",
+    title: "Nežni pudrasti šopek",
+    category: "bouquets",
+    image: "/images/gallery/g_item_15.jpg",
+    description: "Prefinjena barvna harmonija v rožnatih in belih tonih.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "60 €"
+  },
+  {
+    id: "g_new_16",
+    title: "Poročni naprsni in mizni aranžmaji",
+    category: "weddings",
+    image: "/images/gallery/g_item_16.jpg",
+    description: "Uskladeni cvetlični detajli za ženina, svate in mizne dekoracije.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "Po dogovoru"
+  },
+  {
+    id: "g_new_17",
+    title: "Elegantna poročna dekoracija lokacije",
+    category: "weddings",
+    image: "/images/gallery/g_item_17.jpg",
+    description: "Cvetlično oblikovanje ambienta na lokaciji obreda ali slavja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "Po dogovoru"
+  },
+  {
+    id: "g_new_18",
+    title: "Jesenska cvetlična simfonija",
+    category: "seasonal",
+    image: "/images/gallery/g_item_18.jpg",
+    description: "Topli bordo in zlati toni jesenskega cvetja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "55 €"
+  },
+  {
+    id: "g_new_19",
+    title: "Sodobna botanična skulptura",
+    category: "custom",
+    image: "/images/gallery/g_item_19.jpg",
+    description: "Minimalistična kreacija v ročno oblikovani podlagi.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "105 €"
+  },
+  {
+    id: "g_new_20",
+    title: "Beli elegantski šopek Anaeva",
+    category: "bouquets",
+    image: "/images/gallery/g_item_20.jpg",
+    description: "Čist in bezčasen šopek iz belih vrtnic in nežnega zelenja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "70 €"
+  },
+  {
+    id: "g_new_21",
+    title: "Cvetlični aranžma za posebne priložnosti",
+    category: "events",
+    image: "/images/gallery/g_item_21.jpg",
+    description: "Vrhunski namizni aranžma z izbranimi cvetnimi stebli.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "95 €"
+  },
+  {
+    id: "g_new_22",
+    title: "Raskošen cvetlični šopek",
+    category: "bouquets",
+    image: "/images/gallery/g_item_22.jpg",
+    description: "Velik in bogat šopek z raznolikimi teksturami cvetja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "80 €"
+  },
+  {
+    id: "g_new_23",
+    title: "Zimska cvetlična pravljica",
+    category: "seasonal",
+    image: "/images/gallery/g_item_23.jpg",
+    description: "Zimski cvetlični aranžma s storžki in posušenimi botaničnimi poudarki.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "65 €"
+  },
+  {
+    id: "g_new_24",
+    title: "Poročna dekoracija mize",
+    category: "weddings",
+    image: "/images/gallery/g_item_24.jpg",
+    description: "Cvetlični aranžmaji na poročni mizi z elegantnim svečevjem.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "Po dogovoru"
+  },
+  {
+    id: "g_new_25",
+    title: "Artizanska botanična vaza",
+    category: "custom",
+    image: "/images/gallery/g_item_25.jpg",
+    description: "Unikatno cvetlično oblikovanje v ročno narejeni vazi.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "85 €"
+  },
+  {
+    id: "g_new_26",
+    title: "Mini romantični šopek",
+    category: "bouquets",
+    image: "/images/gallery/g_item_26.jpg",
+    description: "Kompakten, a izjemno prikupen ročno vezan šopek.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "40 €"
+  },
+  {
+    id: "g_new_27",
+    title: "Poletni pisani šopek",
+    category: "seasonal",
+    image: "/images/gallery/g_item_27.jpg",
+    description: "Razgiban poletni šopek živo obarvanega cvetja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "50 €"
+  },
+  {
+    id: "g_new_28",
+    title: "Tradicionalni ročno vezan šopek",
+    category: "bouquets",
+    image: "/images/gallery/g_item_28.jpg",
+    description: "Klasično vezan šopek iz najboljših cvetov lokalnih vzrediteljev.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "55 €"
+  },
+  {
+    id: "g_new_29",
+    title: "Zimska ambientna dekoracija",
+    category: "events",
+    image: "/images/gallery/g_item_29.jpg",
+    description: "Topel praznični aranžma za ambient pisarn in salonov.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "75 €"
+  },
+  {
+    id: "g_new_30",
+    title: "Velikonočni spomladanski šopek",
+    category: "seasonal",
+    image: "/images/gallery/g_item_30.jpg",
+    description: "Igra spomladanskih barv z narcisami in tulipani.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "60 €"
+  },
+  {
+    id: "g_new_31",
+    title: "Majski cvetlični šopek",
+    category: "bouquets",
+    image: "/images/gallery/g_item_31.jpg",
+    description: "Razkošen majski šopek svežih potonik in rožnatih cvetov.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "65 €"
+  },
+  {
+    id: "g_new_32",
+    title: "Minimalistični aranžma",
+    category: "custom",
+    image: "/images/gallery/g_item_32.jpg",
+    description: "Trajen aranžma z suhim cvetjem in lesnimi poudarki.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "70 €"
+  },
+  {
+    id: "g_new_33",
+    title: "Bujni šopek potonik",
+    category: "bouquets",
+    image: "/images/gallery/g_item_33.jpg",
+    description: "Dišeč in bogat šopek potonik v polnem cvetu.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "85 €"
+  },
+  {
+    id: "g_new_34",
+    title: "Poletni poljski šopek",
+    category: "seasonal",
+    image: "/images/gallery/g_item_34.jpg",
+    description: "Naraven in mehek šopek s poljskim cvetjem.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "45 €"
+  },
+  {
+    id: "g_new_35",
+    title: "Umetniški cvetlični lonček",
+    category: "custom",
+    image: "/images/gallery/g_item_35.jpg",
+    description: "Dekorativen cvetlični aranžma v keramični posodi.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "55 €"
+  },
+  {
+    id: "g_new_36",
+    title: "Poletni namizni aranžma",
+    category: "events",
+    image: "/images/gallery/g_item_36.jpg",
+    description: "Nizek namizni aranžma za letne terase in praznovanja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "80 €"
+  },
+  {
+    id: "g_new_37",
+    title: "Poletni šopek z sončnicami",
+    category: "bouquets",
+    image: "/images/gallery/g_item_37.jpg",
+    description: "Topel in optimističen šopek z sončnicami in poljskim rastjem.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "50 €"
+  },
+  {
+    id: "g_new_38",
+    title: "Jesenski botanični aranžma",
+    category: "custom",
+    image: "/images/gallery/g_item_38.jpg",
+    description: "Teksturirana kompozicija s suhimi in svežimi jesenskimi stebli.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "75 €"
+  },
+  {
+    id: "g_new_39",
+    title: "Jesenska bogata kompozicija",
+    category: "seasonal",
+    image: "/images/gallery/g_item_39.jpg",
+    description: "Bogat jesenski aranžma v toplih rjavih in koralnih odtenkih.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "65 €"
+  },
+  {
+    id: "g_new_40",
+    title: "Pomladanski šopek tulipanov",
+    category: "bouquets",
+    image: "/images/gallery/g_item_40.jpg",
+    description: "Sveže obrani tulipani in zlatice v živahnih spomladanskih barvah.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "55 €"
+  },
+  {
+    id: "g_new_41",
+    title: "Delikatni nevestin šopek",
+    category: "weddings",
+    image: "/images/gallery/g_item_41.jpg",
+    description: "Eleganten nevestin šopek z nežno strukturo cvetja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "90 €"
+  },
+  {
+    id: "g_new_42",
+    title: "Ljubka cvetlična pozornost",
+    category: "bouquets",
+    image: "/images/gallery/g_item_42.jpg",
+    description: "Nežen šopek za hitro presenečenje ali lep dan.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "40 €"
+  },
+  {
+    id: "g_new_43",
+    title: "Cvetlični venec za vrata",
+    category: "custom",
+    image: "/images/gallery/g_item_43.jpg",
+    description: "Ročno spleten stenski ali vratni venec iz suhega in svežega cvetja.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "60 €"
+  },
+  {
+    id: "g_new_44",
+    title: "Droban sezonski šopek",
+    category: "seasonal",
+    image: "/images/gallery/g_item_44.jpg",
+    description: "Priljubljen majhen šopek za obisk ali drobno veselje.",
+    dimensions: "V: 55 cm | Š: 40 cm",
+    price: "35 €"
+  },
+  {
     id: "g1",
     title: "Eterični šopek Elysian",
     category: "bouquets",
