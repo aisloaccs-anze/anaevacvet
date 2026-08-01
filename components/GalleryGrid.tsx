@@ -92,41 +92,42 @@ export default function GalleryGrid() {
         })}
       </div>
 
-      {/* Asymmetric Masonry Grid */}
+      {/* Responsive Fixed-Aspect Grid */}
       <motion.div
         layout
-        className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
       >
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence>
           {filteredItems.map((item) => (
             <motion.div
               key={item.id}
               layout
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               onClick={() => openLightbox(item)}
-              className="break-inside-avoid relative overflow-hidden group bg-background-secondary border border-border-color rounded-2xl cursor-pointer shadow-sm hover:shadow-md transition-all duration-500 block"
+              className="relative overflow-hidden group bg-background-secondary border border-border-color rounded-2xl cursor-pointer shadow-sm hover:shadow-md transition-all duration-500 block"
             >
-              {/* Image Frame */}
-              <div className="relative w-full aspect-[4/5] sm:aspect-auto overflow-hidden">
-                <img
+              {/* Image Frame with reserved aspect ratio */}
+              <div className="relative w-full aspect-[4/5] overflow-hidden bg-pink-50/50">
+                <Image
                   src={item.image}
                   alt={item.title}
-                  className="w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 
                 {/* Micro-interaction Hover Cover */}
-                <div className="absolute inset-0 bg-foreground/30 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-between p-6">
+                <div className="absolute inset-0 bg-foreground/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
                   <div className="flex justify-end">
-                    <div className="w-8 h-8 rounded-full bg-background/90 flex items-center justify-center text-foreground shadow-md transform translate-y-[-10px] group-hover:translate-y-0 transition-transform duration-400">
+                    <div className="w-8 h-8 rounded-full bg-background/90 flex items-center justify-center text-foreground shadow-md transform translate-y-[-10px] group-hover:translate-y-0 transition-transform duration-300">
                       <Maximize2 className="w-4 h-4" />
                     </div>
                   </div>
                   
-                  <div className="transform translate-y-[10px] group-hover:translate-y-0 transition-transform duration-400">
+                  <div className="transform translate-y-[10px] group-hover:translate-y-0 transition-transform duration-300">
                     <span className="font-sans text-[9px] tracking-widest uppercase text-background/85 font-semibold block mb-1">
                       {item.category}
                     </span>
@@ -137,7 +138,7 @@ export default function GalleryGrid() {
                 </div>
               </div>
 
-              {/* Offline Visible Metadata Info (Mobile fallback) */}
+              {/* Mobile Metadata Info */}
               <div className="p-4 bg-background-secondary border-t border-border-color md:hidden">
                 <span className="font-sans text-[8px] tracking-widest uppercase text-accent-sage font-bold">
                   {item.category}
