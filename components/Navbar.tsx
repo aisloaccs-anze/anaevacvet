@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Domov" },
+  { href: "/halo-sopki", label: "Halo šopki" },
+  { href: "/delavnice", label: "Delavnice" },
   { href: "/gallery", label: "Galerija" },
   { href: "/services", label: "Storitve" },
   { href: "/weddings", label: "Poroke" },

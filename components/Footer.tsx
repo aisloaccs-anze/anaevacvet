@@ -149,6 +149,12 @@ export default function Footer() {
                   <Link href="/" className="hover:text-foreground transition-colors">Domov</Link>
                 </li>
                 <li>
+                  <Link href="/halo-sopki" className="hover:text-foreground transition-colors">Halo šopki</Link>
+                </li>
+                <li>
+                  <Link href="/delavnice" className="hover:text-foreground transition-colors">Delavnice</Link>
+                </li>
+                <li>
                   <Link href="/gallery" className="hover:text-foreground transition-colors">Galerija</Link>
                 </li>
                 <li>
