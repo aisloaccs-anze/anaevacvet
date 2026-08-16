@@ -107,7 +107,6 @@ export default function HaloSopkiPage() {
     return `${Math.round(product.basePrice * multiplier)} €`;
   };
 
-  const handleQuickOrderSubmit = (e: React.FormEvent) => {
   const [isRedirectingToStripe, setIsRedirectingToStripe] = useState(false);
 
   const calculateNumericPrice = (product: BouquetProduct) => {
