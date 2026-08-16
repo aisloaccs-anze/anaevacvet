@@ -276,8 +276,15 @@ export default function HaloSopkiPage() {
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="p-6 pt-0">
+              {/* Action Buttons */}
+              <div className="p-6 pt-0 flex flex-col gap-2">
+                <Link
+                  href={`/checkout?item=${product.id === 1 ? "sezonski" : product.id === 2 ? "romanticni" : product.id === 3 ? "botanicni" : product.id === 4 ? "anthurium" : product.id === 5 ? "grand" : "custom"}`}
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 bg-foreground text-background font-sans text-xs tracking-widest uppercase font-bold rounded-full hover:bg-accent-sage hover:text-foreground transition-all duration-300 shadow-sm"
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  Blagajna & Plačilo ({product.price})
+                </Link>
                 <button
                   onClick={() => {
                     setSelectedProduct(product);
@@ -285,10 +292,9 @@ export default function HaloSopkiPage() {
                     setIsRedirectingToStripe(false);
                     setOrderSent(false);
                   }}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-foreground text-background font-sans text-xs tracking-widest uppercase font-bold rounded-full hover:bg-accent-sage hover:text-foreground transition-all duration-300"
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 border border-pink-100 text-muted-text hover:text-foreground font-sans text-[10px] tracking-widest uppercase rounded-full hover:bg-pink-50 transition-colors"
                 >
-                  <ShoppingBag className="w-4 h-4" />
-                  Naroči šopek
+                  Hitri predogled / Posvetilo
                 </button>
               </div>
             </motion.div>
