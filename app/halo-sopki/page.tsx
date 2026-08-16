@@ -108,8 +108,48 @@ export default function HaloSopkiPage() {
   };
 
   const handleQuickOrderSubmit = (e: React.FormEvent) => {
+  const [isRedirectingToStripe, setIsRedirectingToStripe] = useState(false);
+
+  const calculateNumericPrice = (product: BouquetProduct) => {
+    if (product.price === "Po dogovoru") return 50;
+    let multiplier = 1;
+    if (sizeOption === "Medium") multiplier = 1.4;
+    if (sizeOption === "Grand") multiplier = 1.9;
+    return Math.round(product.basePrice * multiplier);
+  };
+
+  const handleStripeCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
-    setOrderSent(true);
+    if (!selectedProduct) return;
+    try {
+      setIsRedirectingToStripe(true);
+      const numericPrice = calculateNumericPrice(selectedProduct);
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: selectedProduct.title,
+          amountInEuros: numericPrice,
+          image: selectedProduct.image,
+          sizeOption,
+          deliveryOption,
+          note,
+          type: "bouquet",
+        }),
+      });
+
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data.error || "Napaka pri povezovanju s Stripe");
+        setIsRedirectingToStripe(false);
+      }
+    } catch (err) {
+      console.error("Stripe error:", err);
+      alert("Napaka pri povezovanju s Stripe strežnikom");
+      setIsRedirectingToStripe(false);
+    }
   };
 
   return (
@@ -242,6 +282,7 @@ export default function HaloSopkiPage() {
                   onClick={() => {
                     setSelectedProduct(product);
                     setSizeOption("Standard");
+                    setIsRedirectingToStripe(false);
                     setOrderSent(false);
                   }}
                   className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-foreground text-background font-sans text-xs tracking-widest uppercase font-bold rounded-full hover:bg-accent-sage hover:text-foreground transition-all duration-300"
@@ -342,13 +383,13 @@ export default function HaloSopkiPage() {
                       <div>
                         <h4 className="font-serif text-lg text-foreground font-bold">{selectedProduct.title}</h4>
                         <p className="font-sans text-xs text-muted-text leading-tight mb-1">{selectedProduct.subtitle}</p>
-                        <span className="font-serif text-lg text-pink-600 font-bold">
+                        <span className="font-serif text-xl text-pink-600 font-bold">
                           {calculatePrice(selectedProduct)}
                         </span>
                       </div>
                     </div>
 
-                    <form onSubmit={handleQuickOrderSubmit} className="space-y-5">
+                    <form onSubmit={handleStripeCheckout} className="space-y-5">
                       {/* Size Selector */}
                       {selectedProduct.price !== "Po dogovoru" && (
                         <div>
@@ -425,10 +466,17 @@ export default function HaloSopkiPage() {
                       <div className="pt-4 border-t border-pink-100 flex flex-col gap-3">
                         <button
                           type="submit"
-                          className="w-full py-4 bg-foreground text-background font-sans text-xs tracking-widest uppercase font-bold rounded-full hover:bg-accent-sage hover:text-foreground transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
+                          disabled={isRedirectingToStripe}
+                          className="w-full py-4 bg-foreground text-background font-sans text-xs tracking-widest uppercase font-bold rounded-full hover:bg-accent-sage hover:text-foreground transition-all duration-300 flex items-center justify-center gap-2 shadow-lg disabled:opacity-50"
                         >
-                          <Check className="w-4 h-4" />
-                          Pošlji naročilo
+                          {isRedirectingToStripe ? (
+                            <span>Nalaganje Stripe plačila...</span>
+                          ) : (
+                            <>
+                              <Check className="w-4 h-4" />
+                              Plačaj s kartico (Stripe) — {calculatePrice(selectedProduct)}
+                            </>
+                          )}
                         </button>
 
                         <div className="text-center font-sans text-xs text-muted-text">ali pokličite za takojšnjo potrditev:</div>
