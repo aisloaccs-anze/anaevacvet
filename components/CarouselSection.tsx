@@ -12,6 +12,7 @@ const carouselItems: CardStackItem[] = [
     description: "Sveže sezonsko cvetje, ki prinaša toplino v vsak dom",
     imageSrc: "/images/carousel1.jpg",
     tag: "Šopki po meri",
+    href: "/checkout?item=sezonski",
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ const carouselItems: CardStackItem[] = [
     description: "Luksuzni šopki za posebne priložnosti in praznovanja",
     imageSrc: "/images/carousel2.jpg",
     tag: "Premium",
+    href: "/checkout?item=romanticni",
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ const carouselItems: CardStackItem[] = [
     description: "Unikatne cvetlične kreacije z eksotičnimi elementi",
     imageSrc: "/images/carousel3.jpg",
     tag: "Unikatno",
+    href: "/checkout?item=botanicni",
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ const carouselItems: CardStackItem[] = [
     description: "Pogumne kombinacije, ki navdušijo na prvi pogled",
     imageSrc: "/images/carousel4.jpg",
     tag: "Ekskluzivno",
+    href: "/checkout?item=anthurium",
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ const carouselItems: CardStackItem[] = [
     description: "Prava mojstrovina za tiste, ki iščejo nekaj posebnega",
     imageSrc: "/images/carousel5.jpg",
     tag: "Posebno",
+    href: "/checkout?item=grand",
   },
 ];
 
@@ -66,7 +71,7 @@ export default function CarouselSection() {
             Halo šopki
           </h2>
           <p className="font-sans text-sm text-muted-text max-w-xl mx-auto leading-relaxed">
-            Vsaka kreacija je sestavljena z ljubeznijo in natančnostjo. Pomaknite kartice ali povlecite, da odkrijete naše najljubše ustvaritve.
+            Vsaka kreacija je sestavljena z ljubeznijo in natančnostjo. Pomaknite kartice ali kliknite za hitro naročilo.
           </p>
         </motion.div>
 
@@ -101,10 +106,10 @@ export default function CarouselSection() {
           className="flex justify-center mt-12"
         >
           <Link
-            href="/gallery"
-            className="inline-flex items-center gap-2 px-8 py-4 border-2 border-foreground text-foreground font-sans text-[10px] tracking-widest uppercase hover:bg-foreground hover:text-background transition-all duration-300 rounded-full font-bold"
+            href="/halo-sopki"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background font-sans text-[10px] tracking-widest uppercase hover:bg-accent-sage hover:text-foreground transition-all duration-300 rounded-full font-bold shadow-md"
           >
-            Oglej si celotno galerijo
+            Naroči šopek v spletni cvetličarni
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </motion.div>
