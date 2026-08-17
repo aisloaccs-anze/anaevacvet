@@ -14,7 +14,6 @@ import {
   Check,
   Lock,
   ArrowLeft,
-  Calendar,
   MapPin,
   CreditCard,
 } from "lucide-react";
@@ -82,7 +81,6 @@ function CheckoutFormContent() {
 
   const [sizeOption, setSizeOption] = useState<"Standard" | "Medium" | "Grand">("Standard");
   const [deliveryType, setDeliveryType] = useState<"Dostava" | "Prevzem">("Dostava");
-  const [deliveryDate, setDeliveryDate] = useState("");
   const [recipientName, setRecipientName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -295,36 +293,6 @@ function CheckoutFormContent() {
               </div>
             )}
 
-            <div>
-              <label className="font-sans text-xs uppercase tracking-wider font-bold text-foreground block mb-1.5 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-pink-500" />
-                Želeni datum dostave / prevzema
-              </label>
-              <input
-                type="date"
-                value={deliveryDate}
-                onChange={(e) => setDeliveryDate(e.target.value)}
-                className="w-full bg-pink-50/30 border border-pink-100 focus:border-pink-400 rounded-xl p-3.5 font-sans text-xs text-foreground focus:outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Section 3: Greeting Card Note */}
-          <div className="bg-white/90 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-pink-100/70 shadow-sm space-y-4">
-            <div className="flex items-center gap-2.5 text-pink-500 border-b border-pink-100 pb-4">
-              <Gift className="w-5 h-5" />
-              <h2 className="font-serif text-xl text-foreground font-bold">3. Brezplačno osebno posvetilo</h2>
-            </div>
-            <p className="font-sans text-xs text-muted-text">
-              K vsakemu šopku priložimo ročno napisano posvetilo na teksturirani kartici Anaeva.
-            </p>
-            <textarea
-              rows={3}
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-              placeholder="Vnesite besedilo posvetila (npr. Draga Maja, vse najboljše za tvoj 30. rojstni dan!)..."
-              className="w-full bg-pink-50/30 border border-pink-100 focus:border-pink-400 rounded-xl p-3.5 font-sans text-xs text-foreground focus:outline-none resize-none"
-            />
           </div>
 
           {/* Submit Button to Stripe */}
@@ -399,6 +367,24 @@ function CheckoutFormContent() {
               <span>Sveže cvetje ročno sestavljeno na dan dostave</span>
             </div>
           </div>
+        </div>
+
+        {/* Greeting Card Note — below price box */}
+        <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl border border-pink-100/70 shadow-sm space-y-3">
+          <div className="flex items-center gap-2.5 text-pink-500">
+            <Gift className="w-5 h-5 flex-shrink-0" />
+            <h3 className="font-serif text-lg text-foreground font-bold">Brezplačno osebno posvetilo</h3>
+          </div>
+          <p className="font-sans text-xs text-muted-text">
+            K vsakemu šopku priložimo ročno napisano posvetilo na teksturirani kartici Anaeva.
+          </p>
+          <textarea
+            rows={3}
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder="Vnesite besedilo posvetila (npr. Draga Maja, vse najboljše za tvoj 30. rojstni dan!)..."
+            className="w-full bg-pink-50/30 border border-pink-100 focus:border-pink-400 rounded-xl p-3.5 font-sans text-xs text-foreground focus:outline-none resize-none"
+          />
         </div>
 
         {/* Quick Phone Call Assistance */}
